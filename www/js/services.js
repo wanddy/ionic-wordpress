@@ -60,11 +60,12 @@ angular.module('starter.services', [])
 	this.submitComment = function(postId, content) {
 		var deferred = $q.defer(),
 			user = AuthService.getUser();
-
+		console.log(user.cookie)
 		$http.jsonp(WORDPRESS_API_URL + 'user/post_comment/' +
 				'?post_id=' + postId +
 				'&cookie=' + user.cookie +
 				'&comment_status=1' +
+				'&insecure=cool'+
 				'&content=' + content +
 				'&callback=JSON_CALLBACK')
 			.success(function(data) {
@@ -553,6 +554,7 @@ angular.module('starter.services', [])
 				'&user_pass=' + password +
 				'&nonce=' + nonce +
 				'&notify=no' +
+				'&insecure=cool'+
 				'&callback=JSON_CALLBACK')
 			.success(function(data) {
 				deferred.resolve(data);

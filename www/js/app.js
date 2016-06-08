@@ -226,7 +226,7 @@ angular.module('starter', [
     resolve: {
       page_data: function(PostService) {
         //You should replace this with your page slug
-        var page_slug = 'wordpress-page';
+        var page_slug = 'jianyi';
         return PostService.getWordpressPage(page_slug);
       }
     }
