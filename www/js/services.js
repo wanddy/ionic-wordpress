@@ -25,6 +25,7 @@ angular.module('starter.services', [])
 		$http.jsonp(WORDPRESS_API_URL + 'user/get_avatar/' +
 				'?user_id=' + userId +
 				'&type=full' +
+				'&insecure=cool'+
 				'&callback=JSON_CALLBACK')
 			.success(function(data) {
 
@@ -402,8 +403,10 @@ angular.module('starter.services', [])
 		var deferred = $q.defer();
 		$http.jsonp(WORDPRESS_API_URL + 'user/validate_auth_cookie/' +
 				'?cookie=' + user.cookie +
+				'&insecure=cool'+
 				'&callback=JSON_CALLBACK')
 			.success(function(data) {
+				console.log(data);
 				deferred.resolve(data);
 			})
 			.error(function(data) {
@@ -591,9 +594,10 @@ angular.module('starter.services', [])
 		$http.jsonp(WORDPRESS_API_URL + 'user/get_avatar/' +
 				'?user_id=' + user.user_id +
 				'&type=full' +
+				'&insecure=cool'+
 				'&callback=JSON_CALLBACK')
 			.success(function(data) {
-
+				console.log(data)
 				var avatar_aux = data.avatar.replace("http:", "");
 				var avatar = 'http:' + avatar_aux;
 
