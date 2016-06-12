@@ -16,7 +16,7 @@ angular.module('starter', [
   'starter.services',
   'starter.factories',
   'starter.filters',
-  'ngMap',
+  //'ngMap',
   'angularMoment',
   'underscore',
   'ngCordova',
